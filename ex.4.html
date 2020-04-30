@@ -12,6 +12,7 @@
             width: 264px;
             height: 164px;
             border: 1px solid black;
+            margin: 2px;
             background-color: cornflowerblue;
             display: flex;
             flex-direction: column;
@@ -35,7 +36,7 @@
         }
 
         h2 {
-            font-size: xx-small;
+            font-size: x-small;
         }
     </style>
 </head>
@@ -59,29 +60,34 @@
             const users = document.querySelector('.users');
             const user = document.createElement('div');
             user.setAttribute('class', 'user');
-            user.innerHTML = item.email;
-            users.appendChild(user);
-            createHeader(item);
-            userName(item);
-        }
 
-        function createHeader(item) {
             const header = document.createElement('header');
             header.setAttribute('class', 'header');
-            const user = document.querySelector('.user');
-            user.appendChild(header);
-        }
-
-        function userName(item) {
+            
             const firstName = document.createElement('h1');
             firstName.innerHTML = item.first_name;
             const lastName = document.createElement('h1');
             lastName.innerHTML = item.last_name;
-            const header = document.querySelector('.header');
+
+            const image = document.createElement('h1');
+            image.setAttribute('class', 'image');
+            const img = document.createElement('img');
+            img.src = item.avatar;
+
+            const email =document.createElement('h2');
+            email.innerHTML = item.email;
+
+            users.appendChild(user);
+            user.appendChild(header);
             header.appendChild(firstName);
             header.appendChild(lastName);
+            header.appendChild(image);
+            image.appendChild(img);
+            user.appendChild(email);
 
         }
+
+  
 
         function getData(url) {
             return fetch(url)
