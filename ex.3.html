@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var data = [
+            {
+                "userId": 1,
+                "id": 1,
+                "title": "delectus aut autem",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 2,
+                "title": "quis ut nam facilis et officia qui",
+                "completed": false
+            }
+        ]
+
+        function createLi(item) {
+            const li = document.createElement('div');
+            li.innerHTML = item.title;
+            document.body.appendChild(li);
+        }
+
+        function getData(url) {
+            return fetch(url)
+            .then(Response => Response.json())    
+        }
+
+        getData('https://jsonplaceholder.typicode.com/todos').then(d => d.forEach(createLi));
+
+        
+
+
+    </script>
+</body>
+
+</html>

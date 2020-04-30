@@ -1,0 +1,38 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img class="img"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTy4T1LcGhAE7bv9C6h8QgN6qbnB5IGpqnkmDfASSVYj1EAnlVx&usqp=CAU">
+    <script>
+        document.querySelector('.img').style.visibility = 'hidden';
+    </script>
+    <script>
+        function showImage() {
+            const img = document.querySelector('.img');
+            document.querySelector('.img').style.visibility = 'visible';
+        }
+
+        function delay(ms) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(resolve, ms)
+            })
+        };
+
+        delay(1000).then(showImage);
+
+
+        // const delay = new Promise(function(resolve, reject) {
+        //     setTimeout(() => {
+
+        //     }, timeout);
+        // })
+    </script>
+</body>
+
+</html>
